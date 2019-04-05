@@ -21,6 +21,7 @@ int main() {
         v.push_back(temp);
     }
 
+    ifs.close();
 
     int max_result = 0;
     int current_result = 0;
@@ -47,6 +48,7 @@ int main() {
 
     ofs << max_result << '\n';
 
+    ofs.close();
 
     return EXIT_SUCCESS;
 }
