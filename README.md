@@ -1,5 +1,2 @@
-# hello-world
-This is a short desciption
-
-This is a shorter desciption of short description used above.
+Решения задач для ["Яндекс.Интервью"](https://contest.yandex.ru/contest/8458)
 
