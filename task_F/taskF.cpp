@@ -1,11 +1,7 @@
 #include <fstream>
-#include <algorithm>
-#include <deque>
-#include <vector>
-#include <iterator>
+#include <array>
 
 using namespace std;
-
 
 int main() {
 
@@ -15,44 +11,33 @@ int main() {
     int k;
     ifs >> k;
 
-    deque<vector<int>> qv;
+    array<int, 101> a;
+    a.fill(0);
 
     for (int i = 0; i < k; ++i) {
 
         int t;
         ifs >> t;
 
-        vector<int> tv;
-
         for (int j = 0; j < t; ++j) {
 
             int temp;
             ifs >> temp;
-            tv.push_back(temp);
+            ++a[temp];
         }
-
-        qv.emplace_back(tv);
 
     }
 
     ifs.close();
 
-    while (qv.size() != 1) {
-
-        qv.emplace_back(vector<int>());
-        merge(qv[0].begin(), qv[0].end(), qv[1].begin(), qv[1].end(), back_inserter(qv.back()));
-        qv.pop_front();
-        qv.pop_front();
-
-    } 
-
     ofstream ofs;
     ofs.open ("output.txt", ios::out);
 
+    for (auto it = a.begin(); it != a.end(); ++it) {
 
-    for (const int & item : qv.front() ) {
-
-        ofs << item << " ";
+        for (int i = 0; i < (*it); ++i) {
+            ofs << (it - a.begin()) << ' ' ;
+        }
     }
 
     ofs << '\n' ;
